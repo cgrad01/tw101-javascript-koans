@@ -34,3 +34,27 @@
  */
 
 // Write your JavaScript here
+
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function formatString(array) {
+    return array.toString().replace(",", " ");
+}
+
+function adjustText(nestedLines){
+    var answer = "";
+    var wordCount = 0;
+    for(var line in nestedLines) {
+        wordCount += nestedLines[line].length;
+        if(line === "1"){
+            nestedLines[line] = nestedLines[line].reverse();
+        };
+        answer  += formatString(nestedLines[line]) + " ";
+    }
+
+    changeElementText("#count", wordCount);
+    changeElementText("#correctedString", formatString(answer));
+}
+
