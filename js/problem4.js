@@ -27,3 +27,21 @@
 */
 
 // Write your JavaScript here
+
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+var noteValues = [5, 10, 20, 50, 100, 500];
+var answer = 0;
+function moneyCount(notes){
+    for(var note in notes){
+        if (noteValues.includes(notes[note])){
+            answer += notes[note];
+        } else {
+            break;
+        }
+    }
+    changeElementText("#noteList", " " + notes.toString() + " ");
+    changeElementText("#total", answer);
+}
